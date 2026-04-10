@@ -138,8 +138,8 @@ em { font-style: italic; color: var(--ivory-dim); }
 }
 .navbar.scrolled {
   background: rgba(13, 15, 18, 0.92);
-  backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
   border-bottom-color: var(--ink-line);
 }
 .nav-container {
