@@ -7,75 +7,248 @@
   <link rel="icon" type="image/png" href="/favicon.png">
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css"/>
+  <style>
+    .cert-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 3000;
+      background: rgba(13,15,18,0.92);
+      backdrop-filter: blur(8px);
+      justify-content: center;
+      align-items: center;
+      padding: 1.5rem;
+    }
+    .cert-modal.open { display: flex; }
+    .cert-modal-box {
+      background: var(--ink-soft);
+      border: 1px solid var(--ink-line);
+      border-radius: 8px;
+      width: 100%;
+      max-width: 780px;
+      max-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      box-shadow: 0 32px 80px rgba(0,0,0,0.6);
+    }
+    .cert-modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.1rem 1.5rem;
+      border-bottom: 1px solid var(--ink-line);
+      flex-shrink: 0;
+      gap: 1rem;
+    }
+    .cert-modal-header h3 {
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--ivory);
+      margin: 0;
+    }
+    .cert-modal-actions { display: flex; gap: 0.65rem; align-items: center; flex-shrink: 0; }
+    .cert-btn {
+      font-size: 0.78rem;
+      font-weight: 500;
+      padding: 0.38rem 0.85rem;
+      border-radius: 4px;
+      border: 1px solid var(--ink-line);
+      background: transparent;
+      color: var(--ivory-dim);
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.2s;
+      font-family: var(--font-body);
+    }
+    .cert-btn:hover { border-color: var(--accent); color: var(--accent); }
+    .cert-btn-close {
+      background: none; border: none;
+      color: var(--ivory-dim); font-size: 1.4rem;
+      cursor: pointer; line-height: 1; padding: 0 0.2rem;
+      transition: color 0.2s;
+    }
+    .cert-btn-close:hover { color: var(--ivory); }
+    .cert-modal-body {
+      flex: 1;
+      overflow: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #111318;
+      min-height: 320px;
+    }
+    .cert-modal-body iframe {
+      width: 100%;
+      min-height: 520px;
+      border: none;
+      display: block;
+    }
+    .cert-modal-body img {
+      max-width: 100%;
+      max-height: 72vh;
+      display: block;
+      object-fit: contain;
+      padding: 1rem;
+    }
+
+    /* Verify buttons on each award */
+    .award-verify-row {
+      display: flex;
+      gap: 0.6rem;
+      margin-top: 0.9rem;
+      flex-wrap: wrap;
+    }
+    .verify-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.77rem;
+      font-weight: 500;
+      padding: 0.35rem 0.85rem;
+      border-radius: 4px;
+      border: 1px solid var(--ink-line);
+      background: transparent;
+      color: var(--ivory-dim);
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.22s;
+      font-family: var(--font-body);
+      letter-spacing: 0.01em;
+    }
+    .verify-btn:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
+    .verify-btn.primary {
+      border-color: rgba(91,138,139,0.4);
+      color: var(--accent);
+      background: var(--accent-soft);
+    }
+    .verify-btn.primary:hover { background: rgba(91,138,139,0.25); }
+  </style>
 </head>
 <body>
   <nav class="navbar" id="navbar"></nav>
 
-  <section class="section awards-section">
+  <section class="section" style="padding-top: calc(var(--nav-h) + 3rem);">
     <div class="container prose">
 
       <div class="reveal">
         <div class="section-eyebrow">Recognition</div>
         <h1 class="section-title">Honors &amp;<br><em>Awards.</em></h1>
-        <p class="awards-intro">A record of competition results and institutional recognition across robotics, mathematics, business, and physics.</p>
+        <p style="margin-top:1rem;margin-bottom:3rem;font-size:1.05rem;">
+          Competition results and institutional recognition across robotics, mathematics, business, and physics — each verifiable via certificate.
+        </p>
       </div>
 
       <div class="reveal">
 
+        <!-- ① ORWELL AWARD -->
         <div class="award-item">
           <div class="award-icon">🏆</div>
           <div class="award-body">
             <h3>The Orwell Award</h3>
-            <div class="venue">International Robotics Olympiad 2026 · Gema IRO</div>
-            <p>Presented to team <strong>Circuit Crusaders</strong> for the clearest and most compelling technical communication at the international level. The project — an autonomous firefighting robot — competed against international teams in the IRO 2026.</p>
-            <div class="award-date">March 23, 2026</div>
+            <div class="venue">International Robotics Olympiad 2026 · GEMA International</div>
+            <p>Presented to team <strong>Circuit Crusaders</strong> (St. Joseph Higher Secondary School) for the clearest and most compelling technical communication. Autonomous firefighting robot with multi-directional flame sensing and automated suppression.</p>
+            <div class="award-date">23 March 2026</div>
+            <div class="award-verify-row">
+              <button class="verify-btn primary" onclick="openCert('iro')">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                View Certificate
+              </button>
+              <a href="assets/certs/iro-orwell-award.pdf" download="IRO-Orwell-Award-Muktadir-Arif.pdf" class="verify-btn">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download PDF
+              </a>
+            </div>
           </div>
         </div>
 
+        <!-- ② RLS RUNNER-UP -->
         <div class="award-item">
           <div class="award-icon">🥈</div>
           <div class="award-body">
             <h3>Runner-Up — Mathematics</h3>
-            <div class="venue">RLS National Youth Expo · National Level</div>
-            <p>Secured the runner-up position in the Math Olympiad segment of the RLS National Youth Expo, competing against participants from across Bangladesh.</p>
+            <div class="venue">RLS National Youth Expo · Red Love Society × Job Media</div>
+            <p>Secured the Runner-Up position in the Mathematics segment of the RLS National Youth Expo, competing at the national level against participants from across Bangladesh.</p>
             <div class="award-date">January 2026</div>
+            <div class="award-verify-row">
+              <button class="verify-btn primary" onclick="openCert('rls')">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                View Certificate
+              </button>
+              <a href="assets/certs/rls-runner-up.png" download="RLS-Runner-Up-Muktadir-Arif.png" class="verify-btn">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download
+              </a>
+            </div>
           </div>
         </div>
 
+        <!-- ③ POWERPRENEUR -->
         <div class="award-item">
           <div class="award-icon">🏅</div>
           <div class="award-body">
             <h3>National Finalist — Top 6</h3>
-            <div class="venue">Powerpreneur 4.0 · DUEDC Startup Competition</div>
-            <p>Reached the national finals with team <strong>SJHSS Venus Venturers</strong> in the Startup &amp; Business Analysis Competition, placing in the top 6 nationally — the only college team to reach the finals in this edition.</p>
+            <div class="venue">Powerpreneur 4.0 · Gold Kinen × DUEDC · National Startup Competition</div>
+            <p>Reached the national finals with team <strong>SJHSS Venus Venturers</strong> — the only college team to make the finals. Certificate of Appreciation signed by Prof. Dr. Rafiuddin Ahmed, Moderator &amp; Chief Patron of DUEDC.</p>
+            <div class="award-verify-row">
+              <button class="verify-btn primary" onclick="openCert('pp')">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                View Certificate
+              </button>
+              <a href="assets/certs/powerpreneur-4.png" download="Powerpreneur-4-Finalist-Muktadir-Arif.png" class="verify-btn">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download
+              </a>
+            </div>
           </div>
         </div>
 
+        <!-- ④ IPHYC -->
         <div class="award-item">
           <div class="award-icon">⚗️</div>
           <div class="award-body">
             <h3>Special Honour — Digital Solution</h3>
             <div class="venue">International Physics Competition (IPhyC) 2025</div>
-            <p>Recognized for successfully participating in the Qualification Round and submitting solutions as a digitally structured document — demonstrating both physics competency and technical presentation skills.</p>
-            <div class="award-date">February 16, 2026</div>
+            <p>Recognized for successfully participating in the Qualification Round and submitting solutions as a digitally written document. Certificate ID: <code style="font-size:0.82em;background:rgba(255,255,255,0.05);padding:1px 5px;border-radius:3px;">QR-2025-10168D9CA23C</code></p>
+            <div class="award-date">16 February 2026</div>
+            <div class="award-verify-row">
+              <button class="verify-btn primary" onclick="openCert('iphyc')">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                View Certificate
+              </button>
+              <a href="https://iphyc.org/verify" target="_blank" rel="noopener" class="verify-btn">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                Verify Online ↗
+              </a>
+              <a href="assets/certs/iphyc-2025.pdf" download="IPhyC-2025-Muktadir-Arif.pdf" class="verify-btn">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download PDF
+              </a>
+            </div>
           </div>
         </div>
 
+        <!-- ⑤ BdMO -->
         <div class="award-item">
           <div class="award-icon">📐</div>
           <div class="award-body">
             <h3>Divisional Qualifier</h3>
             <div class="venue">Bangladesh Mathematical Olympiad (BdMO)</div>
-            <p>Qualified at the divisional level in the Bangladesh Mathematical Olympiad — one of the most competitive national math competitions, a stepping stone toward the IMO selection pipeline.</p>
+            <p>Qualified at the divisional level in the Bangladesh Mathematical Olympiad — part of the national IMO selection pipeline.</p>
           </div>
         </div>
 
+        <!-- ⑥ BDAIO -->
         <div class="award-item">
           <div class="award-icon">💻</div>
           <div class="award-body">
             <h3>BDAIO 2026 Regional Qualifier</h3>
             <div class="venue">Bangladesh Informatics Olympiad · IOI Track</div>
-            <p>Qualified for the BDAIO 2026 regional round in IOI-style competitive programming, competing in algorithms and data structures at the national level. Scheduled for the third week of April 2026.</p>
+            <p>Qualified for the BDAIO 2026 regional round in IOI-style competitive programming. Regional round scheduled for the third week of April 2026.</p>
           </div>
         </div>
 
@@ -83,16 +256,64 @@
     </div>
   </section>
 
+  <!-- CERTIFICATE VIEWER MODAL -->
+  <div id="certModal" class="cert-modal" onclick="if(event.target===this)closeCert()">
+    <div class="cert-modal-box">
+      <div class="cert-modal-header">
+        <h3 id="certTitle">Certificate</h3>
+        <div class="cert-modal-actions">
+          <a id="certDownloadBtn" href="#" download class="cert-btn">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download
+          </a>
+          <button class="cert-btn-close" onclick="closeCert()" aria-label="Close">×</button>
+        </div>
+      </div>
+      <div class="cert-modal-body" id="certBody"></div>
+    </div>
+  </div>
+
   <footer class="footer">
     <div class="footer-inner">
       <p class="footer-copy">© 2026 Muktadir Arif</p>
       <div class="footer-links">
-        <a href="https://github.com/umayer16" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://github.com/umayer16" target="_blank">GitHub</a>
         <a href="/contact.html">Contact</a>
       </div>
     </div>
   </footer>
 
   <script src="assets/js/main.js"></script>
+  <script>
+    const certData = {
+      iro:   { title: 'IRO 2026 — Orwell Award Certificate',          type: 'pdf', path: 'assets/certs/iro-orwell-award.pdf',    dl: 'IRO-Orwell-Award-Muktadir-Arif.pdf' },
+      rls:   { title: 'RLS National Youth Expo — Runner-Up',          type: 'img', path: 'assets/certs/rls-runner-up.png',        dl: 'RLS-Runner-Up-Muktadir-Arif.png' },
+      pp:    { title: 'Powerpreneur 4.0 — Finalist Certificate',      type: 'img', path: 'assets/certs/powerpreneur-4.png',       dl: 'Powerpreneur4-Finalist-Muktadir-Arif.png' },
+      iphyc: { title: 'IPhyC 2025 — Participation Certificate',       type: 'pdf', path: 'assets/certs/iphyc-2025.pdf',          dl: 'IPhyC-2025-Muktadir-Arif.pdf' },
+    };
+
+    function openCert(id) {
+      const c = certData[id];
+      if (!c) return;
+      document.getElementById('certTitle').textContent = c.title;
+      const dlBtn = document.getElementById('certDownloadBtn');
+      dlBtn.href = c.path;
+      dlBtn.download = c.dl;
+      const body = document.getElementById('certBody');
+      body.innerHTML = c.type === 'pdf'
+        ? `<iframe src="${c.path}#toolbar=0&navpanes=0&scrollbar=0" title="${c.title}"></iframe>`
+        : `<img src="${c.path}" alt="${c.title}">`;
+      document.getElementById('certModal').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeCert() {
+      document.getElementById('certModal').classList.remove('open');
+      document.getElementById('certBody').innerHTML = '';
+      document.body.style.overflow = '';
+    }
+
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeCert(); });
+  </script>
 </body>
 </html>
