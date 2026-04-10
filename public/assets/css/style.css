@@ -685,6 +685,14 @@ em { font-style: italic; color: var(--ivory-dim); }
 .reveal-delay-2 { transition-delay: 0.2s; }
 .reveal-delay-3 { transition-delay: 0.3s; }
 
+/* Failsafe: if JS observer never fires, show content after 1.5s */
+@keyframes revealFallback {
+  to { opacity: 1; transform: none; }
+}
+.reveal {
+  animation: revealFallback 0s 1.5s forwards;
+}
+
 /* =====================
    ANIMATIONS
    ===================== */

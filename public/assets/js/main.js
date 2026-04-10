@@ -67,10 +67,22 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* ---- SCROLL REVEAL ---- */
+  // Use threshold:0 so elements at top of viewport always fire.
+  // Double-rAF ensures layout is complete before first observation.
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); observer.unobserve(e.target); } });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0, rootMargin: '0px 0px -20px 0px' });
+
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    });
+  });
 
 });
 
