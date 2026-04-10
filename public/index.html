@@ -3,43 +3,50 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Muktadir Arif | Aspiring AI Researcher</title>
-  <meta name="description" content="Class of 2027 • Harvard CS50x • Building AI-powered solutions for real student problems"/>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <title>Muktadir Arif | AI Researcher & Developer</title>
+  <link rel="icon" type="image/png" href="/favicon.png">
+    
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500&family=Space+Grotesk:wght@300;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css"/>
 </head>
 <body>
+  <nav class="navbar" id="navbar"></nav>
 
-  <!-- Floating Navbar -->
-  <nav class="navbar" id="navbar">
-    <div class="nav-container">
-      <a href="/" class="nav-logo">MUKTADIR ARIF</a>
-      <ul class="nav-menu" id="nav-menu">
-        <li><a href="/" class="nav-link active">Home</a></li>
-        <li><a href="/about.html" class="nav-link">About</a></li>
-        <li><a href="/projects.html" class="nav-link">Projects</a></li>
-        <li><a href="/experience.html" class="nav-link">Experience</a></li>
-        <li><a href="/academics.html" class="nav-link">Academics</a></li>
-        <li><a href="/contact.html" class="nav-link">Contact</a></li>
-      </ul>
-      <div class="hamburger" id="hamburger">
-        <span></span><span></span><span></span>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Hero -->
   <section class="hero">
+    
     <div class="hero-content">
-      <h1 class="name">Muktadir Arif</h1>
-      <p class="subtitle">Class of 2027(HSC) • Harvard CS50x & CS50 Python</p>
-      <p class="tagline">Building intelligent systems from hostel chaos</p>
-      <div class="hero-buttons">
-        <a href="/projects.html" class="btn-primary">View My Work</a>
-        <a href="/contact.html" class="btn-secondary">Get In Touch</a>
+      
+      <div style="margin-bottom: 2rem; display: inline-block; opacity: 0; animation: fadeUp 0.8s ease-out forwards;">
+        <span style="font-family: 'Manrope', sans-serif; color: var(--gold); background: rgba(201, 168, 106, 0.1); padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; border: 1px solid rgba(201, 168, 106, 0.3); backdrop-filter: blur(5px);">
+          ⚡ Current Focus: <span id="learning-status" style="font-weight: 600;">AI Research &amp; Robotics</span>
+        </span>
       </div>
+
+      <h1 class="hero-name">
+        Building Intelligent<br>
+        Systems.
+      </h1>
+      
+      <div class="gold-line"></div>
+
+      <p class="hero-desc" style="max-width: 600px; margin: 0 auto; font-size: 1.2rem; color: var(--text-muted);">
+        Hi, I'm <strong>Muktadir Arif</strong>. I build intelligent systems — from autonomous robots to AI benchmarking frameworks — grounded in rigorous research and real-world impact.
+        <br><span style="font-size: 0.95rem; opacity: 0.8;">Class of 2027 • AI Researcher &amp; Builder</span>
+      </p>
+
+      <div style="display: flex; gap: 1.5rem; justify-content: center; margin-top: 2.5rem; opacity: 0; animation: fadeUp 0.8s ease-out 0.6s forwards;">
+        
+        <a href="/projects.html" class="btn">
+          View My Work
+        </a>
+        
+        <a href="/contact.html" class="btn btn-outline">
+          Contact Me
+        </a>
+
+      </div>
+
     </div>
-    <div class="hero-bg"></div>
   </section>
 
   <script src="assets/js/main.js"></script>

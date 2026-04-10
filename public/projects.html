@@ -4,51 +4,101 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Projects | Muktadir Arif</title>
+  <link rel="icon" type="image/png" href="/favicon.png">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css"/>
 </head>
 <body>
-  <nav class="navbar" id="navbar">
-    <div class="nav-container">
-      <a href="/" class="nav-logo">MUKTADIR ARIF</a>
-      <ul class="nav-menu" id="nav-menu">
-        <li><a href="/" class="nav-link">Home</a></li>
-        <li><a href="/about.html" class="nav-link">About</a></li>
-        <li><a href="/projects.html" class="nav-link active">Projects</a></li>
-        <li><a href="/experience.html" class="nav-link">Experience</a></li>
-        <li><a href="/academics.html" class="nav-link">Academics</a></li>
-        <li><a href="/contact.html" class="nav-link">Contact</a></li>
-      </ul>
-      <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
-    </div>
-  </nav>
+  <nav class="navbar" id="navbar"></nav>
 
-  <section class="section dark">
+  <section class="section">
     <div class="container">
-      <h2 class="section-title">Projects</h2>
-      <div class="projects-grid">
+      <h2 class="section-title">Featured Projects</h2>
+      <div class="gold-line"></div>
+      
+      <p style="text-align: center; margin-bottom: 4rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+        Real-world applications solving actual problems. Click on any project to see the case study and tech stack.
+      </p>
 
-        <!-- Hostel Tracker -->
-        <div class="project-card" onclick="openModal('hostel')">
-          <div class="project-logo">
-            <img src="assets/img/hostel-tracker-logo.png" alt="Hostel Tracker">
+      <div class="card-grid">
+
+        <div class="card project-hover-card" onclick="openModal('hostel')">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem;">
+            <img src="assets/img/hostel-tracker-logo.png" alt="Logo" class="project-icon-small">
+            <span class="status-badge live">● Live App</span>
           </div>
-          <div class="overlay">
-            <h3>Hostel Expense Tracker</h3>
-            <p>Full-stack • Firebase Auth & Firestore • 70+ daily active users</p>
-            <span class="tag">Live Demo →</span>
+          <h3 style="color: var(--text-main); margin-bottom: 0.5rem;">Hostel Expense Tracker</h3>
+          <p style="font-size: 0.95rem; margin-bottom: 1.5rem; flex-grow: 1;">
+            A complete financial management suite for students. Handles authentication, real-time database, and spending analytics for 70+ daily users.
+          </p>
+          <div class="card-tech">
+            <span class="tech-tag">Firebase</span>
+            <span class="tech-tag">JavaScript</span>
+            <span class="tech-tag">Chart.js</span>
+            <span class="tech-tag">NoSQL</span>
+          </div>
+          <div style="margin-top: 1.5rem; width: 100%;">
+            <span class="btn btn-outline" style="width: 100%; display: block; text-align: center; font-size: 0.9rem;">View Case Study</span>
           </div>
         </div>
 
-        <!-- Flappy Sparrow -->
-        <div class="project-card" onclick="openModal('flappy')">
-          <div class="project-logo">
-            <img src="assets/img/flappy-sparrow-logo.png" alt="Flappy Sparrow">
+        <div class="card project-hover-card" onclick="openModal('vibebench')">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem;">
+            <span style="font-size: 2rem;">🧪</span>
+            <span class="status-badge live">● Research</span>
           </div>
-          <div class="overlay">
-            <h3>Flappy Sparrow</h3>
-            <p>Python • Pygame • Classic arcade game clone</p>
-            <span class="tag">Play Now →</span>
+          <h3 style="color: var(--text-main); margin-bottom: 0.5rem;">VibeBench</h3>
+          <p style="font-size: 0.95rem; margin-bottom: 1.5rem; flex-grow: 1;">
+            A holistic LLM evaluation benchmarking framework. Features datasets, a live leaderboard, and a published research paper evaluating large language models across multiple dimensions.
+          </p>
+          <div class="card-tech">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">LLM Evaluation</span>
+            <span class="tech-tag">Benchmarking</span>
+            <span class="tech-tag">Research</span>
+          </div>
+          <div style="margin-top: 1.5rem; width: 100%;">
+            <a href="https://github.com/umayer16/VIBEBENCH" target="_blank" class="btn btn-outline" style="width: 100%; display: block; text-align: center; font-size: 0.9rem;">View on GitHub</a>
+          </div>
+        </div>
+
+        <div class="card project-hover-card" onclick="openModal('circuit')">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem;">
+            <span style="font-size: 2rem;">🤖</span>
+            <span class="status-badge live">● Award Winner</span>
+          </div>
+          <h3 style="color: var(--text-main); margin-bottom: 0.5rem;">Circuit Crusaders</h3>
+          <p style="font-size: 0.95rem; margin-bottom: 1.5rem; flex-grow: 1;">
+            An autonomous firefighting robot built for the International Robotics Olympiad 2026. Uses multi-directional flame sensors and an automated extinguishing mechanism for hands-free fire suppression. Won the Orwell Award.
+          </p>
+          <div class="card-tech">
+            <span class="tech-tag">Embedded Systems</span>
+            <span class="tech-tag">Sensor Integration</span>
+            <span class="tech-tag">Autonomous Systems</span>
+            <span class="tech-tag">Robotics</span>
+          </div>
+          <div style="margin-top: 1.5rem; width: 100%;">
+            <span class="btn btn-outline" style="width: 100%; display: block; text-align: center; font-size: 0.9rem;">View Details</span>
+          </div>
+        </div>
+
+        <div class="card project-hover-card" onclick="openModal('flappy')">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem;">
+            <img src="assets/img/flappy-sparrow-logo.png" alt="Logo" class="project-icon-small">
+            <span class="status-badge code">Code</span>
+          </div>
+          <h3 style="color: var(--text-main); margin-bottom: 0.5rem;">Flappy Sparrow</h3>
+          <p style="font-size: 0.95rem; margin-bottom: 1.5rem; flex-grow: 1;">
+            A physics-based arcade game clone built from scratch. Features collision detection, score tracking, and smooth frame-rate optimization.
+          </p>
+          <div class="card-tech">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">Pygame</span>
+            <span class="tech-tag">OOP</span>
+            <span class="tech-tag">Game Logic</span>
+          </div>
+          <div style="margin-top: 1.5rem; width: 100%;">
+            <span class="btn btn-outline" style="width: 100%; display: block; text-align: center; font-size: 0.9rem;">Play Demo</span>
           </div>
         </div>
 
@@ -56,7 +106,6 @@
     </div>
   </section>
 
-  <!-- Modal -->
   <div id="projectModal" class="modal">
     <div class="modal-content">
       <span class="close" onclick="closeModal()">×</span>
