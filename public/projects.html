@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Projects | Muktadir Arif</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css"/>
+</head>
+<body>
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="/" class="nav-logo">MUKTADIR ARIF</a>
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="/" class="nav-link">Home</a></li>
+        <li><a href="/about.html" class="nav-link">About</a></li>
+        <li><a href="/projects.html" class="nav-link active">Projects</a></li>
+        <li><a href="/experience.html" class="nav-link">Experience</a></li>
+        <li><a href="/academics.html" class="nav-link">Academics</a></li>
+        <li><a href="/contact.html" class="nav-link">Contact</a></li>
+      </ul>
+      <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+    </div>
+  </nav>
+
+  <section class="section dark">
+    <div class="container">
+      <h2 class="section-title">Projects</h2>
+      <div class="projects-grid">
+
+        <!-- Hostel Tracker -->
+        <div class="project-card" onclick="openModal('hostel')">
+          <div class="project-logo">
+            <img src="assets/img/hostel-tracker-logo.png" alt="Hostel Tracker">
+          </div>
+          <div class="overlay">
+            <h3>Hostel Expense Tracker</h3>
+            <p>Full-stack • Firebase Auth & Firestore • 70+ daily active users</p>
+            <span class="tag">Live Demo →</span>
+          </div>
+        </div>
+
+        <!-- Flappy Sparrow -->
+        <div class="project-card" onclick="openModal('flappy')">
+          <div class="project-logo">
+            <img src="assets/img/flappy-sparrow-logo.png" alt="Flappy Sparrow">
+          </div>
+          <div class="overlay">
+            <h3>Flappy Sparrow</h3>
+            <p>Python • Pygame • Classic arcade game clone</p>
+            <span class="tag">Play Now →</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal -->
+  <div id="projectModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">×</span>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
