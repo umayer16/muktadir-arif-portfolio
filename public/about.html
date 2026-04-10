@@ -1,57 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>About | Muktadir Arif
-    
-  </title>
+  <title>About — Muktadir Arif</title>
   <link rel="icon" type="image/png" href="/favicon.png">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css"/>
 </head>
 <body>
   <nav class="navbar" id="navbar"></nav>
 
-  <section class="section">
+  <section class="section" style="padding-top: calc(var(--nav-h) + 3rem);">
     <div class="container">
-      <h2 class="section-title">About Me</h2>
-      <div class="gold-line"></div>
+      <div class="about-layout">
 
-      <div class="about-grid">
-        <div class="about-text">
-          <h3 style="color: var(--text-main); margin-bottom: 1.5rem;">From problems to <span style="color: var(--gold);">Intelligent and Systematic solutions</span></h3>
+        <!-- LEFT: TEXT -->
+        <div class="about-body">
 
-          <p>
-            My journey into tech began with a simple frustration. When I moved from my hometown to Dhaka for my higher studies, I moved into a hostel with 300+ students and immediately saw the chaos of managing finances in such a crowded environment.
-          </p>
-          <p>
-            Instead of just complaining, I built the <strong>Hostel Expense Tracker</strong> — a fully functional web app now used by <strong>70+ students daily</strong> to manage their budgets. That project taught me that the best software solves real problems for real people.
-          </p>
-          <p>
-            Since then, I've expanded far beyond web apps. I competed at the <strong>Gema International Robotics Olympiad 2026</strong>, earning the <strong>Orwell Award</strong> for the Circuit Crusaders project — an autonomous firefighting robot with multi-directional flame sensors and hands-free fire suppression. I've also co-authored <strong>VibeBench</strong>, an open-source benchmarking framework for holistic LLM evaluation.
-          </p>
-          <p>
-            I've rigorously upskilled through Harvard's <strong>CS50x</strong> and <strong>CS50 Python</strong>, and I'm an active Executive Committee Member at both <strong>Scintilla Science Club</strong> and the <strong>Josephite IT Club</strong>.
-          </p>
-          <p>
-            <strong>My Goal:</strong> To study Computer Science at a top global university and contribute to ethical, accessible AI research — building systems that matter from the ground up.
-          </p>
+          <div class="reveal">
+            <div class="section-eyebrow">Background</div>
+            <h1 class="section-title">Building from<br><em>First Principles.</em></h1>
+          </div>
 
-          <div style="margin-top: 2rem;">
-            <a href="/projects.html" class="btn">See My Work</a>
-            <a href="/contact.html" class="btn btn-outline" style="margin-left: 1rem;">Contact Me</a>
+          <div class="reveal reveal-delay-1">
+            <p style="font-size:1.1rem;line-height:1.9;color:var(--ivory-dim);margin-top:1.5rem;">
+              My entry into computing wasn't theoretical — it was a hostel with 300+ students and a broken system for tracking shared expenses. I built the fix. That product is now used by <strong>70+ students every day</strong>, and it taught me the most important lesson early: the best software solves real problems for real people.
+            </p>
+            <p>
+              That conviction has shaped everything since. I don't build demos. I build systems.
+            </p>
+          </div>
+
+          <div class="reveal">
+            <h3>Research Focus</h3>
+            <p>
+              My current primary research is a vulnerability triage framework submitted to <strong>IEEE TDSC</strong> (Impact Factor ~7.3). The paper — <em>"Beyond Severity Scores: Authentication-Aware Vulnerability Triage Using Contextual Risk Adjustment"</em> — proposes an Adjusted Triage Score that moves beyond raw CVSS values to integrate real-world exploitability signals from CISA KEV and EPSS. I also co-authored <strong>VibeBench</strong>, an open-source LLM benchmarking framework submitted to JOSS.
+            </p>
+          </div>
+
+          <div class="reveal">
+            <h3>Robotics &amp; Competition</h3>
+            <p>
+              In March 2026, I represented the <strong>Josephite Scintilla Science Club</strong> at the International Robotics Olympiad 2026 with teammate <strong>Mushrat Salehin Nibir</strong> (Notre Dame College). Our project, <em>Circuit Crusaders</em> — an autonomous firefighting robot with multi-directional flame sensors and automated suppression — won the <strong>Orwell Award</strong> for technical communication excellence.
+            </p>
+            <p>
+              On the competitive programming side, I'm an active <strong>BDAIO 2026 regional qualifier</strong>, competing in IOI-style algorithmic problem solving on Codeforces as <code style="font-size:0.85em;background:rgba(255,255,255,0.05);padding:2px 6px;border-radius:3px;">umayer_16</code>.
+            </p>
+          </div>
+
+          <div class="reveal">
+            <h3>Academic Foundation</h3>
+            <p>
+              I scored <strong>5.00 GPA</strong> in SSC (2024), including 99 in General Math and 98 in Higher Math. I'm currently in Grade 11 (Science) at <strong>Saint Joseph Higher Secondary School</strong>, Dhaka — HSC expected 2027. I completed <strong>Harvard CS50x</strong> and <strong>CS50 Python</strong> with full problem sets and final projects, covering C, Python, Flask, SQL, algorithms, and data structures.
+            </p>
+          </div>
+
+          <div class="reveal">
+            <h3>Long-Term Direction</h3>
+            <p>
+              My goal is a Computer Science degree at a top global institution in 2028 — targeting MIT, Caltech, Stanford, ETH Zurich, NUS, and KAIST with full scholarship pathways. Post-engineering, I'm considering an MBA to bridge research and systems leadership. I'm building toward that systematically: publications, olympiad results, impactful products, and a track record that speaks before I do.
+            </p>
+            <div style="margin-top:2rem;display:flex;gap:1rem;flex-wrap:wrap;">
+              <a href="/projects.html" class="btn btn-primary">View Projects</a>
+              <a href="/publications.html" class="btn btn-outline">Research →</a>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- RIGHT: IMAGE + DETAILS -->
+        <div class="reveal reveal-delay-2">
+          <div class="about-image-frame">
+            <img src="assets/img/profile-placeholder.svg" alt="Muktadir Arif"/>
+            <div class="about-caption">
+              <strong>Muktadir Arif</strong>
+              Grade 11 · SJHSS · Dhaka, Bangladesh
+            </div>
+          </div>
+
+          <!-- Quick facts -->
+          <div style="margin-top:1.5rem;display:flex;flex-direction:column;gap:1px;">
+            <div style="background:var(--ink-soft);border:1px solid var(--ink-line);padding:1rem 1.25rem;border-radius:6px 6px 0 0;display:flex;justify-content:space-between;align-items:center;">
+              <span style="font-size:0.8rem;color:var(--ivory-dim);">SSC GPA</span>
+              <span style="font-size:0.9rem;font-weight:600;color:var(--ivory);">5.00 / 5.00</span>
+            </div>
+            <div style="background:var(--ink-soft);border:1px solid var(--ink-line);border-top:none;padding:1rem 1.25rem;display:flex;justify-content:space-between;align-items:center;">
+              <span style="font-size:0.8rem;color:var(--ivory-dim);">Publications</span>
+              <span style="font-size:0.9rem;font-weight:600;color:var(--ivory);">2 (IEEE + JOSS)</span>
+            </div>
+            <div style="background:var(--ink-soft);border:1px solid var(--ink-line);border-top:none;padding:1rem 1.25rem;display:flex;justify-content:space-between;align-items:center;">
+              <span style="font-size:0.8rem;color:var(--ivory-dim);">App Users</span>
+              <span style="font-size:0.9rem;font-weight:600;color:var(--ivory);">70+ daily</span>
+            </div>
+            <div style="background:var(--ink-soft);border:1px solid var(--ink-line);border-top:none;padding:1rem 1.25rem;display:flex;justify-content:space-between;align-items:center;">
+              <span style="font-size:0.8rem;color:var(--ivory-dim);">IRO 2026</span>
+              <span style="font-size:0.9rem;font-weight:600;color:#E08870;">Orwell Award</span>
+            </div>
+            <div style="background:var(--ink-soft);border:1px solid var(--ink-line);border-top:none;padding:1rem 1.25rem;display:flex;justify-content:space-between;align-items:center;">
+              <span style="font-size:0.8rem;color:var(--ivory-dim);">Powerpreneur</span>
+              <span style="font-size:0.9rem;font-weight:600;color:var(--ivory);">Top 6 National</span>
+            </div>
+            <div style="background:var(--ink-soft);border:1px solid var(--ink-line);border-top:none;padding:1rem 1.25rem;border-radius:0 0 6px 6px;display:flex;justify-content:space-between;align-items:center;">
+              <span style="font-size:0.8rem;color:var(--ivory-dim);">Target University</span>
+              <span style="font-size:0.9rem;font-weight:600;color:var(--accent);">2028 Intake</span>
+            </div>
           </div>
         </div>
 
-        <div class="about-image-wrapper">
-          <img src="assets/img/profile-placeholder.svg" alt="Muktadir Arif" class="profile-img"/>
-          <div class="image-overlay"></div>
-        </div>
       </div>
-
     </div>
   </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p class="footer-copy">© 2026 Muktadir Arif</p>
+      <div class="footer-links">
+        <a href="https://github.com/umayer16" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/muktadir-arif-25b645378/" target="_blank">LinkedIn</a>
+        <a href="/contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
 
   <script src="assets/js/main.js"></script>
 </body>

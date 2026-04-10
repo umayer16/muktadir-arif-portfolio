@@ -1,88 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Publications | Muktadir Arif</title>
+  <title>Research & Publications — Muktadir Arif</title>
   <link rel="icon" type="image/png" href="/favicon.png">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&family=Fira+Code&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css"/>
 </head>
 <body>
   <nav class="navbar" id="navbar"></nav>
 
-  <section class="section">
-    <div class="container" style="max-width: 800px;">
-      <h2 class="section-title">Research & Publications</h2>
-      <div class="gold-line"></div>
+  <section class="section" style="padding-top: calc(var(--nav-h) + 3rem);">
+    <div class="container">
 
-      <div style="display: flex; flex-direction: column; gap: 2rem; margin-top: 3rem;">
+      <div class="reveal">
+        <div class="section-eyebrow">Research Output</div>
+        <h1 class="section-title">Publications &amp;<br><em>Ongoing Work</em></h1>
+        <p style="max-width:560px;font-size:1.05rem;margin-top:1rem;margin-bottom:3rem;">
+          Research at the intersection of AI systems, software security, and machine learning — targeting high-impact venues and real-world applicability.
+        </p>
+      </div>
 
-        <!-- VibeBench -->
-        <div class="card">
-          <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem; margin-bottom: 1rem;">
-            <span style="font-family: 'Fira Code', monospace; color: var(--gold); border: 1px solid var(--gold); padding: 4px 8px; border-radius: 4px; font-size: 0.8rem;">Published · Feb 2026</span>
-            <span style="font-family: 'Fira Code', monospace; color: var(--text-muted); font-size: 0.8rem;">GitHub · MIT License</span>
+      <!-- IEEE TDSC PAPER — FEATURED -->
+      <div class="reveal" style="margin-bottom:3rem;">
+        <div style="background:var(--ink-soft);border:1px solid rgba(91,138,139,0.35);border-radius:8px;padding:2.5rem;position:relative;overflow:hidden;">
+          <!-- Featured glow -->
+          <div style="position:absolute;top:0;right:0;width:40%;height:100%;background:radial-gradient(ellipse at 80% 50%, rgba(91,138,139,0.07) 0%,transparent 70%);pointer-events:none;"></div>
+
+          <div class="pub-meta" style="margin-bottom:1.25rem;">
+            <span class="pub-venue">IEEE TDSC</span>
+            <span class="pub-status">Under Review · April 2026</span>
+            <span style="font-size:0.72rem;background:rgba(201,168,106,0.12);color:var(--accent-warm);border:1px solid rgba(201,168,106,0.3);padding:2px 8px;border-radius:3px;font-weight:600;letter-spacing:0.06em;">★ Primary Research</span>
           </div>
-          <h3 style="color: #e6f1ff; margin-bottom: 0.5rem;">VibeBench: A Holistic LLM Evaluation Framework</h3>
-          <p style="color: var(--gold); font-size: 0.9rem; margin-bottom: 1rem;">Co-author</p>
-          <p style="color: var(--text-muted);">
-            An open-source benchmarking framework for holistic evaluation of large language models (LLMs). VibeBench includes curated datasets, a multi-model evaluation pipeline, a live leaderboard, and an accompanying research paper. Released as v1.0.0 in February 2026.
+
+          <h2 style="font-family:var(--font-body);font-weight:600;font-size:1.3rem;color:var(--ivory);margin-bottom:0.75rem;line-height:1.5;max-width:700px;">
+            Beyond Severity Scores: Authentication-Aware Vulnerability Triage Using Contextual Risk Adjustment
+          </h2>
+
+          <p class="pub-authors">
+            <strong>Muktadir Arif</strong> et al. ·
+            <em>IEEE Transactions on Dependable and Secure Computing</em>
           </p>
-          <div class="card-tech" style="margin-top: 1.5rem; margin-bottom: 1.5rem;">
+
+          <p class="pub-abstract">
+            Existing vulnerability triage relies almost entirely on CVSS base scores, which ignore deployment context and real-world exploitability. This paper introduces the <strong style="color:var(--ivory);">Adjusted Triage Score (ATS)</strong> — a contextual risk framework that integrates CVSS authentication sub-metrics, CISA KEV exploit activity data, and EPSS probabilistic exploitation scores. Validated against the NVD REST API v2.0 with a time-stratified train/test split at 2023-01-01, using AUC-ROC and Average Precision as primary metrics and <code style="font-size:0.85em;background:rgba(255,255,255,0.05);padding:1px 6px;border-radius:3px;">class_weight='balanced'</code> + SMOTE for class imbalance handling.
+          </p>
+
+          <div class="tech-stack" style="margin-bottom:1.75rem;">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">Scikit-Learn</span>
+            <span class="tech-tag">CVSS v3</span>
+            <span class="tech-tag">NVD REST API v2.0</span>
+            <span class="tech-tag">CISA KEV</span>
+            <span class="tech-tag">EPSS</span>
+            <span class="tech-tag">SMOTE</span>
+            <span class="tech-tag">AUC-ROC</span>
+          </div>
+
+          <div class="pub-links">
+            <a href="#" class="pub-link">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              Preprint (Coming Soon)
+            </a>
+            <a href="https://github.com/umayer16" target="_blank" class="pub-link">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+              Repository
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- OTHER PUBLICATIONS -->
+      <div class="reveal">
+        <div class="pub-item">
+          <div class="pub-meta">
+            <span class="pub-venue">JOSS</span>
+            <span class="pub-status">Submitted · February 2026</span>
+          </div>
+          <h3>VibeBench: A Holistic Benchmarking Framework for Large Language Model Evaluation</h3>
+          <p class="pub-authors"><strong>Muktadir Arif</strong> et al. · <em>Journal of Open Source Software</em></p>
+          <p class="pub-abstract">
+            An open-source framework for holistic LLM evaluation spanning reasoning, instruction-following, creativity, and tool-use tasks. VibeBench includes curated multi-domain datasets, a multi-model evaluation pipeline, and a live leaderboard. Released as v1.0.0 under MIT license.
+          </p>
+          <div class="tech-stack" style="margin-bottom:1.5rem;">
             <span class="tech-tag">Python</span>
             <span class="tech-tag">LLM Evaluation</span>
             <span class="tech-tag">Benchmarking</span>
-            <span class="tech-tag">Research Paper</span>
-            <span class="tech-tag">Open Source</span>
+            <span class="tech-tag">Open Source · MIT</span>
           </div>
-          <a href="https://github.com/umayer16/VIBEBENCH" target="_blank" class="btn" style="display: inline-block; font-size: 0.9rem;">
-            View on GitHub →
-          </a>
+          <div class="pub-links">
+            <a href="https://github.com/umayer16/VIBEBENCH" target="_blank" class="pub-link">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+              GitHub Repository
+            </a>
+          </div>
         </div>
 
-        <!-- Vulnerability Triage -->
-        <div class="card">
-          <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem; margin-bottom: 1rem;">
-            <span style="font-family: 'Fira Code', monospace; color: var(--text-muted); border: 1px solid rgba(255,255,255,0.15); padding: 4px 8px; border-radius: 4px; font-size: 0.8rem;">Ongoing Research</span>
+        <div class="pub-item">
+          <div class="pub-meta">
+            <span class="pub-venue">In Progress</span>
+            <span class="pub-status">Active · 2026</span>
           </div>
-          <h3 style="color: #e6f1ff; margin-bottom: 1rem;">Vulnerability Triage Research</h3>
-          <p style="color: var(--text-muted);">
-            Active contributor to vulnerability triage research — the systematic process of identifying, classifying, and prioritizing software vulnerabilities. Work focuses on improving the efficiency and accuracy of triage pipelines using AI-assisted static analysis techniques.
+          <h3>ML-Driven Spending Prediction for Hostel Environments</h3>
+          <p class="pub-authors"><strong>Muktadir Arif</strong> · <em>Independent Research</em></p>
+          <p class="pub-abstract">
+            Leveraging behavioral spending data collected from 70+ students via the Hostel Expense Tracker to train regression and time-series models for monthly expense prediction. Goal: deploy as an in-app module to provide personalized budgeting forecasts.
           </p>
-          <div class="card-tech" style="margin-top: 1.5rem;">
-            <span class="tech-tag">Static Analysis</span>
-            <span class="tech-tag">Software Security</span>
-            <span class="tech-tag">AI-Assisted Research</span>
-          </div>
-          <p style="font-size: 0.85rem; margin-top: 1.5rem; color: var(--text-muted);">
-            Status: Active · More details to be published
-          </p>
-        </div>
-
-        <!-- Hostel ML model -->
-        <div class="card">
-          <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem; margin-bottom: 1rem;">
-            <span style="font-family: 'Fira Code', monospace; color: var(--text-muted); border: 1px solid rgba(255,255,255,0.15); padding: 4px 8px; border-radius: 4px; font-size: 0.8rem;">Ongoing Research</span>
-          </div>
-          <h3 style="color: #e6f1ff; margin-bottom: 1rem;">Hostel Spending Prediction Model</h3>
-          <p style="color: var(--text-muted);">
-            Developing a machine learning model using <strong style="color: var(--text-main);">Scikit-Learn</strong> to analyze historical spending data from the Hostel Expense Tracker. The goal is to predict future monthly expenses for students, helping them budget more effectively based on their real usage patterns.
-          </p>
-          <div class="card-tech" style="margin-top: 1.5rem;">
+          <div class="tech-stack" style="margin-bottom:1.5rem;">
             <span class="tech-tag">Scikit-Learn</span>
             <span class="tech-tag">Python</span>
-            <span class="tech-tag">Data Collection</span>
-            <span class="tech-tag">Prediction Models</span>
+            <span class="tech-tag">Firebase</span>
+            <span class="tech-tag">Time-Series</span>
           </div>
-          <p style="font-size: 0.85rem; margin-top: 1.5rem; color: var(--text-muted);">
-            Status: Data Collection & Model Training Phase
-          </p>
+          <p style="font-size:0.82rem;color:var(--ivory-dim);opacity:0.65;">Status: Data collection &amp; feature engineering phase</p>
         </div>
-
       </div>
+
     </div>
   </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p class="footer-copy">© 2026 Muktadir Arif</p>
+      <div class="footer-links">
+        <a href="https://github.com/umayer16" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/muktadir-arif-25b645378/" target="_blank">LinkedIn</a>
+        <a href="/contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
+
   <script src="assets/js/main.js"></script>
 </body>
 </html>

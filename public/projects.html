@@ -1,104 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Projects | Muktadir Arif</title>
+  <title>Projects — Muktadir Arif</title>
   <link rel="icon" type="image/png" href="/favicon.png">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css"/>
 </head>
 <body>
   <nav class="navbar" id="navbar"></nav>
 
-  <section class="section">
+  <section class="section" style="padding-top: calc(var(--nav-h) + 3rem);">
     <div class="container">
-      <h2 class="section-title">Featured Projects</h2>
-      <div class="gold-line"></div>
-      
-      <p style="text-align: center; margin-bottom: 4rem; max-width: 600px; margin-left: auto; margin-right: auto;">
-        Real-world applications solving actual problems. Click on any project to see the case study and tech stack.
-      </p>
+
+      <div class="reveal">
+        <div class="section-eyebrow">Work</div>
+        <h1 class="section-title">Projects &amp;<br><em>Systems Built.</em></h1>
+        <p style="max-width:520px;font-size:1.05rem;margin-top:1rem;margin-bottom:3.5rem;">
+          Real-world applications, research tools, and competition entries — each one built to solve an actual problem. Click any card for details.
+        </p>
+      </div>
 
       <div class="card-grid">
 
-        <div class="card project-hover-card" onclick="openModal('hostel')">
-          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem;">
-            <img src="assets/img/hostel-tracker-logo.png" alt="Logo" class="project-icon-small">
-            <span class="status-badge live">● Live App</span>
+        <!-- ATS Research -->
+        <div class="card reveal" onclick="openModal('ats')" style="cursor:pointer;border-color:rgba(91,138,139,0.3);">
+          <div class="card-header">
+            <span style="font-size:1.5rem;">🔬</span>
+            <span class="card-tag research">IEEE TDSC</span>
           </div>
-          <h3 style="color: var(--text-main); margin-bottom: 0.5rem;">Hostel Expense Tracker</h3>
-          <p style="font-size: 0.95rem; margin-bottom: 1.5rem; flex-grow: 1;">
-            A complete financial management suite for students. Handles authentication, real-time database, and spending analytics for 70+ daily users.
-          </p>
-          <div class="card-tech">
+          <h3>ATS Vulnerability Triage Framework</h3>
+          <p>Contextual risk adjustment beyond CVSS — integrating CISA KEV, EPSS, and authentication sub-metrics. Primary IEEE research paper (IF ~7.3).</p>
+          <div class="tech-stack">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">Scikit-Learn</span>
+            <span class="tech-tag">NVD API</span>
+            <span class="tech-tag">EPSS</span>
+          </div>
+        </div>
+
+        <!-- VibeBench -->
+        <div class="card reveal reveal-delay-1" onclick="openModal('vibebench')" style="cursor:pointer;">
+          <div class="card-header">
+            <span style="font-size:1.5rem;">🧪</span>
+            <span class="card-tag research">JOSS</span>
+          </div>
+          <h3>VibeBench</h3>
+          <p>Holistic LLM benchmarking framework with curated datasets, multi-model evaluation pipeline, and live leaderboard. Co-authored research paper.</p>
+          <div class="tech-stack">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">LLM Evaluation</span>
+            <span class="tech-tag">Open Source</span>
+          </div>
+        </div>
+
+        <!-- Circuit Crusaders -->
+        <div class="card reveal reveal-delay-2" onclick="openModal('circuit')" style="cursor:pointer;">
+          <div class="card-header">
+            <span style="font-size:1.5rem;">🤖</span>
+            <span class="card-tag award">Orwell Award</span>
+          </div>
+          <h3>Circuit Crusaders</h3>
+          <p>Autonomous firefighting robot for IRO 2026. Multi-directional flame sensing, automated suppression mechanism. Won the international Orwell Award.</p>
+          <div class="tech-stack">
+            <span class="tech-tag">Embedded Systems</span>
+            <span class="tech-tag">Sensor Fusion</span>
+            <span class="tech-tag">Arduino</span>
+          </div>
+        </div>
+
+        <!-- Hostel Tracker -->
+        <div class="card reveal" onclick="openModal('hostel')" style="cursor:pointer;">
+          <div class="card-header">
+            <img src="assets/img/hostel-tracker-logo.png" alt="SpendWise" style="width:36px;height:36px;object-fit:contain;border-radius:6px;background:rgba(255,255,255,0.05);border:1px solid var(--ink-line);">
+            <span class="card-tag live">Live · 70+ Users</span>
+          </div>
+          <h3>SpendWise — Hostel Expense Tracker</h3>
+          <p>Full-stack financial management suite for students. Firebase auth, real-time Firestore, Chart.js analytics. ML spending prediction module in development.</p>
+          <div class="tech-stack">
             <span class="tech-tag">Firebase</span>
             <span class="tech-tag">JavaScript</span>
             <span class="tech-tag">Chart.js</span>
-            <span class="tech-tag">NoSQL</span>
-          </div>
-          <div style="margin-top: 1.5rem; width: 100%;">
-            <span class="btn btn-outline" style="width: 100%; display: block; text-align: center; font-size: 0.9rem;">View Case Study</span>
+            <span class="tech-tag">Scikit-Learn</span>
           </div>
         </div>
 
-        <div class="card project-hover-card" onclick="openModal('vibebench')">
-          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem;">
-            <span style="font-size: 2rem;">🧪</span>
-            <span class="status-badge live">● Research</span>
+        <!-- Flappy Sparrow -->
+        <div class="card reveal reveal-delay-1" onclick="openModal('flappy')" style="cursor:pointer;">
+          <div class="card-header">
+            <img src="assets/img/flappy-sparrow-logo.png" alt="Flappy Sparrow" style="width:36px;height:36px;object-fit:contain;border-radius:6px;background:rgba(255,255,255,0.05);border:1px solid var(--ink-line);">
+            <span class="card-tag code">CS50 Project</span>
           </div>
-          <h3 style="color: var(--text-main); margin-bottom: 0.5rem;">VibeBench</h3>
-          <p style="font-size: 0.95rem; margin-bottom: 1.5rem; flex-grow: 1;">
-            A holistic LLM evaluation benchmarking framework. Features datasets, a live leaderboard, and a published research paper evaluating large language models across multiple dimensions.
-          </p>
-          <div class="card-tech">
-            <span class="tech-tag">Python</span>
-            <span class="tech-tag">LLM Evaluation</span>
-            <span class="tech-tag">Benchmarking</span>
-            <span class="tech-tag">Research</span>
-          </div>
-          <div style="margin-top: 1.5rem; width: 100%;">
-            <a href="https://github.com/umayer16/VIBEBENCH" target="_blank" class="btn btn-outline" style="width: 100%; display: block; text-align: center; font-size: 0.9rem;">View on GitHub</a>
-          </div>
-        </div>
-
-        <div class="card project-hover-card" onclick="openModal('circuit')">
-          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem;">
-            <span style="font-size: 2rem;">🤖</span>
-            <span class="status-badge live">● Award Winner</span>
-          </div>
-          <h3 style="color: var(--text-main); margin-bottom: 0.5rem;">Circuit Crusaders</h3>
-          <p style="font-size: 0.95rem; margin-bottom: 1.5rem; flex-grow: 1;">
-            An autonomous firefighting robot built for the International Robotics Olympiad 2026. Uses multi-directional flame sensors and an automated extinguishing mechanism for hands-free fire suppression. Won the Orwell Award.
-          </p>
-          <div class="card-tech">
-            <span class="tech-tag">Embedded Systems</span>
-            <span class="tech-tag">Sensor Integration</span>
-            <span class="tech-tag">Autonomous Systems</span>
-            <span class="tech-tag">Robotics</span>
-          </div>
-          <div style="margin-top: 1.5rem; width: 100%;">
-            <span class="btn btn-outline" style="width: 100%; display: block; text-align: center; font-size: 0.9rem;">View Details</span>
-          </div>
-        </div>
-
-        <div class="card project-hover-card" onclick="openModal('flappy')">
-          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem;">
-            <img src="assets/img/flappy-sparrow-logo.png" alt="Logo" class="project-icon-small">
-            <span class="status-badge code">Code</span>
-          </div>
-          <h3 style="color: var(--text-main); margin-bottom: 0.5rem;">Flappy Sparrow</h3>
-          <p style="font-size: 0.95rem; margin-bottom: 1.5rem; flex-grow: 1;">
-            A physics-based arcade game clone built from scratch. Features collision detection, score tracking, and smooth frame-rate optimization.
-          </p>
-          <div class="card-tech">
+          <h3>Flappy Sparrow</h3>
+          <p>Physics-based arcade game built from scratch in Python/Pygame. Features collision detection, frame-rate optimization, and a custom asset pipeline.</p>
+          <div class="tech-stack">
             <span class="tech-tag">Python</span>
             <span class="tech-tag">Pygame</span>
             <span class="tech-tag">OOP</span>
-            <span class="tech-tag">Game Logic</span>
-          </div>
-          <div style="margin-top: 1.5rem; width: 100%;">
-            <span class="btn btn-outline" style="width: 100%; display: block; text-align: center; font-size: 0.9rem;">Play Demo</span>
           </div>
         </div>
 
@@ -106,12 +105,24 @@
     </div>
   </section>
 
-  <div id="projectModal" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal()">×</span>
+  <!-- MODAL -->
+  <div id="projectModal" class="modal" onclick="if(event.target===this)closeModal()">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal()">×</button>
       <div id="modalBody"></div>
     </div>
   </div>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p class="footer-copy">© 2026 Muktadir Arif</p>
+      <div class="footer-links">
+        <a href="https://github.com/umayer16" target="_blank">GitHub</a>
+        <a href="/publications.html">Research</a>
+        <a href="/contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
 
   <script src="assets/js/main.js"></script>
 </body>

@@ -1,110 +1,156 @@
-/* =========================================
-   MAIN LOGIC - Dynamic Navbar & Interactions
-   ========================================= */
+/* =====================================================
+   MUKTADIR ARIF — PORTFOLIO v2  |  main.js
+   ===================================================== */
 
-document.addEventListener("DOMContentLoaded", () => {
-    
-    // 1. INJECT NAVBAR (Expanded with SMA Nahian's Structure)
-    const navbarHTML = `
+document.addEventListener('DOMContentLoaded', () => {
+
+  /* ---- INJECT NAVBAR ---- */
+  const navEl = document.getElementById('navbar');
+  if (navEl) {
+    navEl.innerHTML = `
       <div class="nav-container">
-        <a href="/" class="nav-logo">MUKTADIR ARIF</a>
+        <a href="/" class="nav-logo">Muktadir <span>Arif</span></a>
         <ul class="nav-menu" id="nav-menu">
           <li><a href="/" class="nav-link">Home</a></li>
           <li><a href="/about.html" class="nav-link">About</a></li>
           <li><a href="/experience.html" class="nav-link">Experience</a></li>
           <li><a href="/projects.html" class="nav-link">Projects</a></li>
-          <li><a href="/academics.html" class="nav-link">Academics</a></li>
+          <li><a href="/publications.html" class="nav-link">Research</a></li>
           <li><a href="/skills.html" class="nav-link">Skills</a></li>
           <li class="dropdown">
-            <span class="nav-link" style="cursor:pointer">More ▾</span>
-            <div class="dropdown-content">
+            <span class="nav-link dropdown-toggle" tabindex="0">
+              More
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <div class="dropdown-menu">
               <a href="/awards.html">Awards</a>
-              <a href="/publications.html">Publications</a>
+              <a href="/academics.html">Academics</a>
               <a href="/volunteering.html">Volunteering</a>
-              <a href="/guestbook.html">Guestbook</a>
+              <a href="/contact.html">Contact</a>
             </div>
           </li>
-          <li><a href="/contact.html" class="nav-link">Contact</a></li>
         </ul>
-        <div class="hamburger" id="hamburger">
+        <button class="hamburger" id="hamburger" aria-label="Menu">
           <span></span><span></span><span></span>
-        </div>
+        </button>
       </div>
     `;
-    
-    const navElement = document.getElementById('navbar');
-    if (navElement) navElement.innerHTML = navbarHTML;
-  
-    // 2. HIGHLIGHT ACTIVE PAGE
-    const currentPath = window.location.pathname;
-    document.querySelectorAll('.nav-link, .dropdown-content a').forEach(link => {
-      const linkPath = link.getAttribute('href');
-      if (linkPath === currentPath) {
-        link.classList.add('active');
-        // If it's a dropdown item, highlight the parent "More"
-        if (link.parentElement.classList.contains('dropdown-content')) {
-           link.closest('.dropdown').querySelector('.nav-link').classList.add('active');
-        }
-      }
-    });
-  
-    // 3. MOBILE MENU LOGIC
-    const hamburger = document.getElementById('hamburger');
-    const navMenu = document.getElementById('nav-menu');
-    
-    if (hamburger) {
-      hamburger.addEventListener('click', () => {
-        hamburger.classList.toggle('active');
-        navMenu.classList.toggle('active');
-      });
+  }
+
+  /* ---- ACTIVE LINK ---- */
+  const path = window.location.pathname.replace(/\/$/, '') || '/';
+  document.querySelectorAll('.nav-link, .dropdown-menu a').forEach(link => {
+    const href = link.getAttribute('href');
+    const normalized = href === '/' ? '/' : href.replace(/\/$/, '');
+    const isHome = normalized === '/' && path === '';
+    const isMatch = path === normalized || path.endsWith(normalized);
+    if (isMatch || isHome) {
+      link.classList.add('active');
+      const parent = link.closest('.dropdown');
+      if (parent) parent.querySelector('.dropdown-toggle').classList.add('active');
     }
-    
-    // 4. TYPEWRITER EFFECT (For Home Page)
-    const statusElement = document.getElementById('learning-status');
-    if (statusElement) {
-        const topics = ["Machine Learning", "Spending Prediction Model", "HSC Physics", "Advanced Python"];
-        let topicIndex = 0;
-        setInterval(() => {
-            topicIndex = (topicIndex + 1) % topics.length;
-            statusElement.style.opacity = 0;
-            setTimeout(() => {
-                statusElement.innerText = topics[topicIndex];
-                statusElement.style.opacity = 1;
-            }, 500);
-        }, 3000);
-    }
+  });
+
+  /* ---- NAVBAR SCROLL STATE ---- */
+  const scrollNav = () => {
+    document.getElementById('navbar')?.classList.toggle('scrolled', window.scrollY > 30);
+  };
+  window.addEventListener('scroll', scrollNav, { passive: true });
+  scrollNav();
+
+  /* ---- MOBILE MENU ---- */
+  const ham = document.getElementById('hamburger');
+  const menu = document.getElementById('nav-menu');
+  ham?.addEventListener('click', () => {
+    menu?.classList.toggle('open');
+    ham.classList.toggle('active');
+  });
+
+  /* ---- SCROLL REVEAL ---- */
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); observer.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
 });
 
-// Modal Logic
-const projectData = {
-    'hostel': {
-      title: "Hostel Expense Tracker",
-      img: "assets/img/hostel-tracker-logo.png", 
-      desc: "Built a real-world web app used by 70+ students daily. Features Firebase Authentication, Firestore database, and real-time expense charting.",
-      tech: ["Firebase", "JavaScript", "Chart.js"],
-      links: [
-        { text: "Live Demo", url: "https://spendwise-cd1c9.web.app/" },
-        { text: "GitHub", url: "https://github.com/umayer16/hostel-expense-tracker" }
-      ]
-    },
-    'flappy': {
-      title: "Flappy Sparrow",
-      img: "assets/img/flappy-sparrow-logo.png",
-      desc: "A Python/Pygame clone of the classic arcade game. Implements collision detection, score tracking, and physics simulation.",
-      tech: ["Python", "Pygame"],
-      links: [
-        { text: "Play on Scratch", url: "https://scratch.mit.edu/projects/1233387521" }
-      ]
-    }
+/* =====================================================
+   PROJECT MODAL DATA
+   ===================================================== */
+const projects = {
+  hostel: {
+    tag: 'Live App',
+    title: 'Hostel Expense Tracker (SpendWise)',
+    desc: 'A complete financial management suite built after experiencing firsthand the chaos of managing finances among 300+ hostel students. Features Firebase Auth, real-time Firestore database, spending analytics via Chart.js, and dark mode. Currently used by 70+ students daily. An ML spending prediction module using Scikit-Learn is under active development.',
+    tech: ['Firebase', 'JavaScript', 'Firestore', 'Chart.js', 'CSS3'],
+    links: [
+      { label: 'Live Demo →', url: 'https://spendwise-cd1c9.web.app/' },
+      { label: 'GitHub →', url: 'https://github.com/umayer16/hostel-expense-tracker' },
+    ]
+  },
+  vibebench: {
+    tag: 'Research',
+    title: 'VibeBench — LLM Evaluation Framework',
+    desc: 'An open-source benchmarking framework for holistic evaluation of large language models. VibeBench features curated datasets spanning diverse tasks, a multi-model evaluation pipeline, a live leaderboard, and an accompanying research paper. Released as v1.0.0 in February 2026.',
+    tech: ['Python', 'LLM Evaluation', 'Benchmarking', 'Open Source'],
+    links: [
+      { label: 'GitHub →', url: 'https://github.com/umayer16/VIBEBENCH' },
+    ]
+  },
+  ats: {
+    tag: 'IEEE Submission',
+    title: 'Beyond Severity Scores: ATS Vulnerability Triage',
+    desc: 'A research paper proposing an Adjusted Triage Score (ATS) framework that integrates CVSS authentication context, CISA KEV exploit data, and EPSS probabilistic scores. Validated against the NVD REST API v2.0 with a time-stratified train/test split at 2023-01-01. Submitted to IEEE TDSC (Impact Factor ~7.3).',
+    tech: ['Python', 'Scikit-Learn', 'CVSS', 'NVD API', 'EPSS', 'CISA KEV'],
+    links: [
+      { label: 'View Paper (Preprint) →', url: '#' },
+    ]
+  },
+  circuit: {
+    tag: 'Award Winner',
+    title: 'Circuit Crusaders — Firefighting Robot',
+    desc: 'An autonomous firefighting robot designed and built with teammate Mushrat Salehin Nibir for the International Robotics Olympiad 2026. Features multi-directional flame sensors for 360° detection and an automated extinguishing mechanism for hands-free fire suppression. Won the Orwell Award for clearest technical communication.',
+    tech: ['Embedded Systems', 'Sensor Fusion', 'Autonomous Systems', 'Arduino'],
+    links: []
+  },
+  flappy: {
+    tag: 'Code',
+    title: 'Flappy Sparrow',
+    desc: 'A Python/Pygame clone of the classic arcade game built as part of CS50 coursework. Implements physics simulation, collision detection, score tracking, and smooth frame-rate optimization — all from scratch in pure Python.',
+    tech: ['Python', 'Pygame', 'OOP', 'Physics Simulation'],
+    links: [
+      { label: 'Play on Scratch →', url: 'https://scratch.mit.edu/projects/1233387521' },
+    ]
+  }
 };
+
 function openModal(id) {
-    const modal = document.getElementById('projectModal');
-    const body = document.getElementById('modalBody');
-    const data = projectData[id];
-    if (!data) return;
-    const linksHTML = data.links.map(l => `<a href="${l.url}" target="_blank" class="btn" style="padding:0.5rem 1rem; margin-right:10px;">${l.text}</a>`).join('');
-    body.innerHTML = `<h2 style="color:var(--gold);margin-bottom:1rem;">${data.title}</h2><img src="${data.img}" style="width:100px;margin-bottom:1rem;border-radius:12px;"><p style="color:var(--text-main);margin-bottom:1.5rem;">${data.desc}</p><div style="margin-bottom:1.5rem;">${data.tech.map(t => `<span style="color:var(--gold);font-family:'Fira Code',monospace;margin-right:10px;">#${t}</span>`).join('')}</div><div>${linksHTML}</div>`;
-    modal.style.display = "flex";
+  const data = projects[id];
+  if (!data) return;
+  const modal = document.getElementById('projectModal');
+  const body = document.getElementById('modalBody');
+  const tagColor = { 'Live App': 'live', 'Research': 'research', 'IEEE Submission': 'research', 'Award Winner': 'award', 'Code': 'code' }[data.tag] || 'code';
+  const linksHTML = data.links.map(l =>
+    `<a href="${l.url}" target="_blank" class="btn btn-accent" style="font-size:0.82rem;padding:0.6rem 1.25rem;">${l.label}</a>`
+  ).join('');
+  const techHTML = data.tech.map(t => `<span class="tech-tag">${t}</span>`).join('');
+  body.innerHTML = `
+    <div style="margin-bottom:1.5rem;"><span class="card-tag ${tagColor}">${data.tag}</span></div>
+    <h2 style="font-family:var(--font-body);font-size:1.2rem;font-weight:600;color:var(--ivory);margin-bottom:1rem;line-height:1.4;">${data.title}</h2>
+    <p style="font-size:0.92rem;color:var(--ivory-dim);line-height:1.8;margin-bottom:1.5rem;">${data.desc}</p>
+    <div class="tech-stack" style="margin-top:0;padding-top:0;border:none;margin-bottom:1.5rem;">${techHTML}</div>
+    ${linksHTML ? `<div style="display:flex;gap:0.75rem;flex-wrap:wrap;">${linksHTML}</div>` : ''}
+  `;
+  modal.classList.add('open');
 }
-function closeModal() { document.getElementById('projectModal').style.display = "none"; }
-window.onclick = function(e) { if (e.target.classList.contains('modal')) closeModal(); }
+
+function closeModal() {
+  document.getElementById('projectModal')?.classList.remove('open');
+}
+
+window.addEventListener('click', e => {
+  if (e.target.id === 'projectModal') closeModal();
+});
+window.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeModal();
+});
