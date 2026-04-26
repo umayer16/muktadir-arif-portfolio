@@ -11,13 +11,13 @@
 <body>
   <nav class="navbar" id="navbar"></nav>
 
-  <section class="section" style="padding-top: calc(var(--nav-h) + 3rem);">
+  <section class="section projects-section">
     <div class="container">
 
       <div class="reveal">
         <div class="section-eyebrow">Work</div>
         <h1 class="section-title">Projects &amp;<br><em>Systems Built.</em></h1>
-        <p style="max-width:520px;font-size:1.05rem;margin-top:1rem;margin-bottom:3.5rem;">
+        <p class="projects-intro">
           Real-world applications, research tools, and competition entries — each one built to solve an actual problem. Click any card for details.
         </p>
       </div>
@@ -25,9 +25,9 @@
       <div class="card-grid">
 
         <!-- ATS Research -->
-        <div class="card reveal" onclick="openModal('ats')" style="cursor:pointer;border-color:rgba(91,138,139,0.3);">
+        <div class="card reveal card-clickable card-ats" onclick="openModal('ats')">
           <div class="card-header">
-            <span style="font-size:1.5rem;">🔬</span>
+            <span class="emoji-icon">🔬</span>
             <span class="card-tag research">IEEE TDSC</span>
           </div>
           <h3>ATS Vulnerability Triage Framework</h3>
@@ -41,9 +41,9 @@
         </div>
 
         <!-- VibeBench -->
-        <div class="card reveal reveal-delay-1" onclick="openModal('vibebench')" style="cursor:pointer;">
+        <div class="card reveal reveal-delay-1 card-clickable" onclick="openModal('vibebench')">
           <div class="card-header">
-            <span style="font-size:1.5rem;">🧪</span>
+            <span class="emoji-icon">🧪</span>
             <span class="card-tag research">JOSS</span>
           </div>
           <h3>VibeBench</h3>
@@ -56,9 +56,9 @@
         </div>
 
         <!-- Circuit Crusaders -->
-        <div class="card reveal reveal-delay-2" onclick="openModal('circuit')" style="cursor:pointer;">
+        <div class="card reveal reveal-delay-2 card-clickable" onclick="openModal('circuit')">
           <div class="card-header">
-            <span style="font-size:1.5rem;">🤖</span>
+            <span class="emoji-icon">🤖</span>
             <span class="card-tag award">Orwell Award</span>
           </div>
           <h3>Circuit Crusaders</h3>
@@ -71,9 +71,9 @@
         </div>
 
         <!-- Hostel Tracker -->
-        <div class="card reveal" onclick="openModal('hostel')" style="cursor:pointer;">
+        <div class="card reveal card-clickable" onclick="openModal('hostel')">
           <div class="card-header">
-            <img src="assets/img/hostel-tracker-logo.png" alt="SpendWise" style="width:36px;height:36px;object-fit:contain;border-radius:6px;background:rgba(255,255,255,0.05);border:1px solid var(--ink-line);">
+            <img src="assets/img/hostel-tracker-logo.png" alt="SpendWise" class="card-logo">
             <span class="card-tag live">Live · 70+ Users</span>
           </div>
           <h3>SpendWise — Hostel Expense Tracker</h3>
@@ -87,9 +87,9 @@
         </div>
 
         <!-- Flappy Sparrow -->
-        <div class="card reveal reveal-delay-1" onclick="openModal('flappy')" style="cursor:pointer;">
+        <div class="card reveal reveal-delay-1 card-clickable" onclick="openModal('flappy')">
           <div class="card-header">
-            <img src="assets/img/flappy-sparrow-logo.png" alt="Flappy Sparrow" style="width:36px;height:36px;object-fit:contain;border-radius:6px;background:rgba(255,255,255,0.05);border:1px solid var(--ink-line);">
+            <img src="assets/img/flappy-sparrow-logo.png" alt="Flappy Sparrow" class="card-logo">
             <span class="card-tag code">CS50 Project</span>
           </div>
           <h3>Flappy Sparrow</h3>

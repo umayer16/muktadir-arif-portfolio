@@ -11,30 +11,30 @@
 <body>
   <nav class="navbar" id="navbar"></nav>
 
-  <section class="section" style="padding-top: calc(var(--nav-h) + 3rem);">
+  <section class="section section-publications">
     <div class="container">
 
       <div class="reveal">
         <div class="section-eyebrow">Research Output</div>
         <h1 class="section-title">Publications &amp;<br><em>Ongoing Work</em></h1>
-        <p style="max-width:560px;font-size:1.05rem;margin-top:1rem;margin-bottom:3rem;">
+        <p class="section-subtitle">
           Research at the intersection of AI systems, software security, and machine learning — targeting high-impact venues and real-world applicability.
         </p>
       </div>
 
       <!-- IEEE TDSC PAPER — FEATURED -->
-      <div class="reveal" style="margin-bottom:3rem;">
-        <div style="background:var(--ink-soft);border:1px solid rgba(91,138,139,0.35);border-radius:8px;padding:2.5rem;position:relative;overflow:hidden;">
+      <div class="reveal reveal-featured">
+        <div class="pub-featured-card">
           <!-- Featured glow -->
-          <div style="position:absolute;top:0;right:0;width:40%;height:100%;background:radial-gradient(ellipse at 80% 50%, rgba(91,138,139,0.07) 0%,transparent 70%);pointer-events:none;"></div>
+          <div class="pub-featured-glow"></div>
 
-          <div class="pub-meta" style="margin-bottom:1.25rem;">
+          <div class="pub-meta pub-featured-meta">
             <span class="pub-venue">IEEE TDSC</span>
             <span class="pub-status">Under Review · April 2026</span>
-            <span style="font-size:0.72rem;background:rgba(201,168,106,0.12);color:var(--accent-warm);border:1px solid rgba(201,168,106,0.3);padding:2px 8px;border-radius:3px;font-weight:600;letter-spacing:0.06em;">★ Primary Research</span>
+            <span class="pub-featured-badge">★ Primary Research</span>
           </div>
 
-          <h2 style="font-family:var(--font-body);font-weight:600;font-size:1.3rem;color:var(--ivory);margin-bottom:0.75rem;line-height:1.5;max-width:700px;">
+          <h2 class="pub-featured-title">
             Beyond Severity Scores: Authentication-Aware Vulnerability Triage Using Contextual Risk Adjustment
           </h2>
 
@@ -44,10 +44,10 @@
           </p>
 
           <p class="pub-abstract">
-            Existing vulnerability triage relies almost entirely on CVSS base scores, which ignore deployment context and real-world exploitability. This paper introduces the <strong style="color:var(--ivory);">Adjusted Triage Score (ATS)</strong> — a contextual risk framework that integrates CVSS authentication sub-metrics, CISA KEV exploit activity data, and EPSS probabilistic exploitation scores. Validated against the NVD REST API v2.0 with a time-stratified train/test split at 2023-01-01, using AUC-ROC and Average Precision as primary metrics and <code style="font-size:0.85em;background:rgba(255,255,255,0.05);padding:1px 6px;border-radius:3px;">class_weight='balanced'</code> + SMOTE for class imbalance handling.
+            Existing vulnerability triage relies almost entirely on CVSS base scores, which ignore deployment context and real-world exploitability. This paper introduces the <strong class="pub-highlight">Adjusted Triage Score (ATS)</strong> — a contextual risk framework that integrates CVSS authentication sub-metrics, CISA KEV exploit activity data, and EPSS probabilistic exploitation scores. Validated against the NVD REST API v2.0 with a time-stratified train/test split at 2023-01-01, using AUC-ROC and Average Precision as primary metrics and <code class="pub-code">class_weight='balanced'</code> + SMOTE for class imbalance handling.
           </p>
 
-          <div class="tech-stack" style="margin-bottom:1.75rem;">
+          <div class="tech-stack pub-featured-techstack">
             <span class="tech-tag">Python</span>
             <span class="tech-tag">Scikit-Learn</span>
             <span class="tech-tag">CVSS v3</span>
@@ -83,7 +83,7 @@
           <p class="pub-abstract">
             An open-source framework for holistic LLM evaluation spanning reasoning, instruction-following, creativity, and tool-use tasks. VibeBench includes curated multi-domain datasets, a multi-model evaluation pipeline, and a live leaderboard. Released as v1.0.0 under MIT license.
           </p>
-          <div class="tech-stack" style="margin-bottom:1.5rem;">
+          <div class="tech-stack tech-stack-spaced">
             <span class="tech-tag">Python</span>
             <span class="tech-tag">LLM Evaluation</span>
             <span class="tech-tag">Benchmarking</span>
@@ -107,13 +107,13 @@
           <p class="pub-abstract">
             Leveraging behavioral spending data collected from 70+ students via the Hostel Expense Tracker to train regression and time-series models for monthly expense prediction. Goal: deploy as an in-app module to provide personalized budgeting forecasts.
           </p>
-          <div class="tech-stack" style="margin-bottom:1.5rem;">
+          <div class="tech-stack tech-stack-spaced">
             <span class="tech-tag">Scikit-Learn</span>
             <span class="tech-tag">Python</span>
             <span class="tech-tag">Firebase</span>
             <span class="tech-tag">Time-Series</span>
           </div>
-          <p style="font-size:0.82rem;color:var(--ivory-dim);opacity:0.65;">Status: Data collection &amp; feature engineering phase</p>
+          <p class="pub-status-note">Status: Data collection &amp; feature engineering phase</p>
         </div>
       </div>
 
