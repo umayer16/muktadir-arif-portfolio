@@ -97,7 +97,6 @@
       padding: 1rem;
     }
 
-    /* Verify buttons on each award */
     .award-verify-row {
       display: flex;
       gap: 0.6rem;
@@ -128,38 +127,18 @@
       background: var(--accent-soft);
     }
     .verify-btn.primary:hover { background: rgba(91,138,139,0.25); }
-
-    /* Section intro paragraph */
-    .awards-intro {
-      margin-top: 1rem;
-      margin-bottom: 3rem;
-      font-size: 1.05rem;
-    }
-    
-    /* Certificate ID code styling */
-    .cert-id {
-      font-size: 0.82em;
-      background: rgba(255, 255, 255, 0.05);
-      padding: 1px 5px;
-      border-radius: 3px;
-    }
-
-    /* Awards section spacing */
-    .awards-section {
-      padding-top: calc(var(--nav-h) + 3rem);
-    }
   </style>
 </head>
 <body>
   <nav class="navbar" id="navbar"></nav>
 
-  <section class="section awards-section">
+  <section class="section" style="padding-top: calc(var(--nav-h) + 3rem);">
     <div class="container prose">
 
       <div class="reveal">
         <div class="section-eyebrow">Recognition</div>
         <h1 class="section-title">Honors &amp;<br><em>Awards.</em></h1>
-        <p class="awards-intro">
+        <p style="margin-top:1rem;margin-bottom:3rem;font-size:1.05rem;">
           Competition results and institutional recognition across robotics, mathematics, business, and physics — each verifiable via certificate.
         </p>
       </div>
@@ -234,7 +213,7 @@
           <div class="award-body">
             <h3>Special Honour — Digital Solution</h3>
             <div class="venue">International Physics Competition (IPhyC) 2025</div>
-            <p>Recognized for successfully participating in the Qualification Round and submitting solutions as a digitally written document. Certificate ID: <code class="cert-id">QR-2025-10168D9CA23C</code></p>
+            <p>Recognized for successfully participating in the Qualification Round and submitting solutions as a digitally written document. Certificate ID: <code style="font-size:0.82em;background:rgba(255,255,255,0.05);padding:1px 5px;border-radius:3px;">QR-2025-10168D9CA23C</code></p>
             <div class="award-date">16 February 2026</div>
             <div class="award-verify-row">
               <button class="verify-btn primary" onclick="openCert('iphyc')">
@@ -257,9 +236,20 @@
         <div class="award-item">
           <div class="award-icon">📐</div>
           <div class="award-body">
-            <h3>Divisional Qualifier</h3>
-            <div class="venue">Bangladesh Mathematical Olympiad (BdMO)</div>
-            <p>Qualified at the divisional level in the Bangladesh Mathematical Olympiad — part of the national IMO selection pipeline.</p>
+            <h3>Regional Qualifier — Higher Secondary</h3>
+            <div class="venue">24th Bangladesh Mathematical Olympiad (BdMO 2026) · BdMO Committee</div>
+            <p>Qualified in the Higher Secondary Category at the Online Selection Round of the 24th Bangladesh Mathematical Olympiad, advancing to the Regional round. Part of the national IMO selection pipeline.</p>
+            <div class="award-date">December 26, 2025</div>
+            <div class="award-verify-row">
+              <button class="verify-btn primary" onclick="openCert('bdmo')">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                View Certificate
+              </button>
+              <a href="assets/certs/bdmo-2026-selection.pdf" download="BdMO-2026-Selection-Muktadir-Arif.pdf" class="verify-btn">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download PDF
+              </a>
+            </div>
           </div>
         </div>
 
@@ -307,10 +297,11 @@
   <script src="assets/js/main.js"></script>
   <script>
     const certData = {
-      iro:   { title: 'IRO 2026 — Orwell Award Certificate',          type: 'pdf', path: 'assets/certs/iro-orwell-award.pdf',    dl: 'IRO-Orwell-Award-Muktadir-Arif.pdf' },
-      rls:   { title: 'RLS National Youth Expo — Runner-Up',          type: 'img', path: 'assets/certs/rls-runner-up.png',        dl: 'RLS-Runner-Up-Muktadir-Arif.png' },
-      pp:    { title: 'Powerpreneur 4.0 — Finalist Certificate',      type: 'img', path: 'assets/certs/powerpreneur-4.png',       dl: 'Powerpreneur4-Finalist-Muktadir-Arif.png' },
-      iphyc: { title: 'IPhyC 2025 — Participation Certificate',       type: 'pdf', path: 'assets/certs/iphyc-2025.pdf',          dl: 'IPhyC-2025-Muktadir-Arif.pdf' },
+      iro:   { title: 'IRO 2026 — Orwell Award Certificate',          type: 'pdf', path: 'assets/certs/iro-orwell-award.pdf',       dl: 'IRO-Orwell-Award-Muktadir-Arif.pdf' },
+      rls:   { title: 'RLS National Youth Expo — Runner-Up',          type: 'img', path: 'assets/certs/rls-runner-up.png',           dl: 'RLS-Runner-Up-Muktadir-Arif.png' },
+      pp:    { title: 'Powerpreneur 4.0 — Finalist Certificate',      type: 'img', path: 'assets/certs/powerpreneur-4.png',          dl: 'Powerpreneur4-Finalist-Muktadir-Arif.png' },
+      iphyc: { title: 'IPhyC 2025 — Participation Certificate',       type: 'pdf', path: 'assets/certs/iphyc-2025.pdf',             dl: 'IPhyC-2025-Muktadir-Arif.pdf' },
+      bdmo:  { title: 'BdMO 2026 — Regional Qualifier Certificate',   type: 'pdf', path: 'assets/certs/bdmo-2026-selection.pdf',    dl: 'BdMO-2026-Selection-Muktadir-Arif.pdf' },
     };
 
     function openCert(id) {
