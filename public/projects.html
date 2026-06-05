@@ -7,6 +7,10 @@
   <link rel="icon" type="image/png" href="/favicon.png">
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css"/>
+  <style>
+    .card-geo { border-top: 3px solid #58a6ff; }
+    .card-geo .emoji-icon { filter: drop-shadow(0 0 8px rgba(88,166,255,0.4)); }
+  </style>
 </head>
 <body>
   <nav class="navbar" id="navbar"></nav>
@@ -101,6 +105,24 @@
           </div>
         </div>
 
+
+        <!-- GeoSentinel -->
+        <div class="card reveal reveal-delay-2 card-clickable card-geo" onclick="openModal('geosentinel')">
+          <div class="card-header">
+            <span class="emoji-icon">🌍</span>
+            <span class="card-tag live">Live · Stanford CiP 2026</span>
+          </div>
+          <h3>GeoSentinel</h3>
+          <p>Global disaster intelligence platform. Live USGS + NASA EONET data, Omori-Utsu aftershock modelling, composite risk scoring, 3D globe, timeline playback, and PDF briefing export.</p>
+          <div class="tech-stack">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">Plotly Dash</span>
+            <span class="tech-tag">SciPy</span>
+            <span class="tech-tag">USGS API</span>
+            <span class="tech-tag">NASA EONET</span>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -124,6 +146,32 @@
     </div>
   </footer>
 
+
+  <script>
+    window.MODAL_DATA = window.MODAL_DATA || {};
+    window.MODAL_DATA['geosentinel'] = {
+      title: 'GeoSentinel — Global Disaster Intelligence',
+      tag: 'Stanford Code in Place 2026 · Final Project',
+      body: `
+        <p>A browser-based disaster intelligence platform built as the final project for Stanford Code in Place 2026. Fetches live earthquake data from USGS and natural disaster events from NASA EONET simultaneously, runs a composite risk model on every event, and renders everything on an interactive 3D globe in real time.</p>
+        <h4>Technical Highlights</h4>
+        <ul>
+          <li><strong>Omori-Utsu aftershock decay model</strong> — predicts aftershock probability for M≥5.5 earthquakes using published seismological formulas (Omori 1894, Utsu 1961)</li>
+          <li><strong>Composite risk score [0–100]</strong> — weighted combination of surface impact, cluster density (KD-tree spatial index), and aftershock probability</li>
+          <li><strong>Multi-source data fusion</strong> — USGS GeoJSON + NASA EONET v3 fetched in parallel via ThreadPoolExecutor</li>
+          <li><strong>Timeline playback</strong> — scrub through 30 days of seismic history, watch disaster swarms develop in animation</li>
+          <li><strong>Regional heatmap</strong> — choropleth risk density overlay aggregated into 5° grid cells</li>
+          <li><strong>PDF intelligence briefing</strong> — one-click export of formatted risk report with methodology section</li>
+        </ul>
+        <h4>Stack</h4>
+        <p>Python · Plotly Dash · pandas · numpy · scipy · USGS API · NASA EONET API · fpdf2 · gunicorn</p>
+      `,
+      links: [
+        { label: '🌐 Live Demo', url: 'https://geosentinel-ethv.onrender.com/' },
+        { label: '⚙ GitHub', url: 'https://github.com/umayer16/GeoSentinel' },
+      ]
+    };
+  </script>
   <script src="assets/js/main.js"></script>
 </body>
 </html>
