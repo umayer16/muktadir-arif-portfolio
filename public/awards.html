@@ -97,6 +97,13 @@
       padding: 1rem;
     }
 
+    .award-code {
+      font-size: 0.82em;
+      background: rgba(255,255,255,0.05);
+      padding: 1px 5px;
+      border-radius: 3px;
+    }
+
     .award-verify-row {
       display: flex;
       gap: 0.6rem;
@@ -127,18 +134,20 @@
       background: var(--accent-soft);
     }
     .verify-btn.primary:hover { background: rgba(91,138,139,0.25); }
+    .section.section-hero { padding-top: calc(var(--nav-h) + 3rem); }
+    .section-intro { margin-top: 1rem; margin-bottom: 3rem; font-size: 1.05rem; }
   </style>
 </head>
 <body>
   <nav class="navbar" id="navbar"></nav>
 
-  <section class="section" style="padding-top: calc(var(--nav-h) + 3rem);">
+  <section class="section section-hero">
     <div class="container prose">
 
       <div class="reveal">
         <div class="section-eyebrow">Recognition</div>
         <h1 class="section-title">Honors &amp;<br><em>Awards.</em></h1>
-        <p style="margin-top:1rem;margin-bottom:3rem;font-size:1.05rem;">
+        <p class="section-intro">
           Competition results and institutional recognition across robotics, mathematics, business, and physics — each verifiable via certificate.
         </p>
       </div>
@@ -213,7 +222,7 @@
           <div class="award-body">
             <h3>Special Honour — Digital Solution</h3>
             <div class="venue">International Physics Competition (IPhyC) 2025</div>
-            <p>Recognized for successfully participating in the Qualification Round and submitting solutions as a digitally written document. Certificate ID: <code style="font-size:0.82em;background:rgba(255,255,255,0.05);padding:1px 5px;border-radius:3px;">QR-2025-10168D9CA23C</code></p>
+            <p>Recognized for successfully participating in the Qualification Round and submitting solutions as a digitally written document. Certificate ID: <code class="award-code">QR-2025-10168D9CA23C</code></p>
             <div class="award-date">16 February 2026</div>
             <div class="award-verify-row">
               <button class="verify-btn primary" onclick="openCert('iphyc')">
